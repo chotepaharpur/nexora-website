@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nexora helps modern teams work smarter with powerful, simple digital tools.">
+  <title>Nexora — Work Smarter. Grow Faster.</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--bg:#080b14;--panel:#101625;--blue:#6685ff;--text:#f5f7ff;--muted:#a4aec3;--border:#222b40}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1100px,90%);margin:auto}
+    header{border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(8,11,20,.94);backdrop-filter:blur(12px);z-index:10}
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{font-size:27px;font-weight:800;letter-spacing:-1px}
+    .logo span{color:var(--blue)}
+    .links{display:flex;align-items:center;gap:28px;color:var(--muted);font-size:14px}
+    .links a:hover{color:white}
+    .btn{display:inline-block;background:var(--blue);color:white;padding:12px 21px;border-radius:9px;font-weight:700;font-size:14px;border:1px solid var(--blue);transition:.2s}
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+    .btn-outline{background:transparent;border-color:var(--border)}
+    .hero{text-align:center;padding:100px 0 85px;background:radial-gradient(ellipse at 50% 0%,#1b2855 0%,var(--bg) 65%)}
+    .pill{display:inline-block;border:1px solid #354574;background:#131d37;color:#b9c7ff;padding:7px 14px;border-radius:30px;font-size:12px;margin-bottom:24px}
+    h1{font-size:clamp(42px,7vw,76px);line-height:1.08;letter-spacing:-3px;max-width:850px;margin:0 auto 22px}
+    .gradient{background:linear-gradient(100deg,#91a7ff,#7be0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{max-width:610px;margin:0 auto 30px;color:var(--muted);font-size:17px}
+    .actions{display:flex;justify-content:center;gap:13px;flex-wrap:wrap}
+    .note{font-size:12px!important;margin-top:18px!important}
+    .trust{text-align:center;padding:25px 0 55px;color:var(--muted);font-size:13px}
+    .trust strong{color:#dce3f7;margin:0 12px}
+    section{padding:75px 0}
+    .section-head{text-align:center;max-width:650px;margin:0 auto 42px}
+    .eyebrow{color:#8fa5ff;text-transform:uppercase;font-size:12px;font-weight:bold;letter-spacing:2px}
+    h2{font-size:clamp(30px,5vw,44px);line-height:1.2;letter-spacing:-1.5px;margin:12px 0}
+    .section-head p,.muted{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(145deg,#121a2b,#0d1220);border:1px solid var(--border);padding:26px;border-radius:15px}
+    .card:hover{border-color:#5268b2}
+    .ico{width:45px;height:45px;display:grid;place-items:center;background:#1b2850;border-radius:12px;font-size:22px;margin-bottom:19px}
+    h3{font-size:19px;margin-bottom:9px}
+    .card p{font-size:14px;color:var(--muted)}
+    .showcase{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center}
+    .showcase h2{font-size:38px}
+    .checks{list-style:none;margin:23px 0}
+    .checks li{margin:12px 0;color:#d4dcef}
+    .checks li::before{content:"✓";color:#83e0bc;font-weight:bold;margin-right:10px}
+    .dashboard{border:1px solid #303b58;background:#101728;padding:20px;border-radius:17px;box-shadow:0 20px 70px #0007}
+    .dash-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+    .status{font-size:11px;color:#83e0bc;background:#17352f;padding:5px 9px;border-radius:20px}
+    .metric{background:#182239;border:1px solid #2b3650;padding:17px;border-radius:11px;margin-top:12px}
+    .metric small{color:var(--muted)}
+    .number{font-size:28px;font-weight:bold;margin:4px 0}
+    .bars{height:90px;display:flex;align-items:end;gap:8px;margin-top:16px}
+    .bars i{display:block;flex:1;background:linear-gradient(#8296ff,#4056b5);border-radius:5px 5px 0 0}
+    .pricing{max-width:760px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .price-card{padding:28px;border:1px solid var(--border);background:#101625;border-radius:16px}
+    .price-card.featured{border-color:#6685ff;box-shadow:0 0 35px #536dff15}
+    .price{font-size:38px;font-weight:800;margin:14px 0}
+    .price small{font-size:13px;color:var(--muted);font-weight:normal}
+    .price-card ul{list-style:none;color:var(--muted);font-size:14px;margin:20px 0}
+    .price-card li{margin:10px 0}
+    .price-card li::before{content:"✓ ";color:#83e0bc}
+    .price-card .btn{display:block;text-align:center}
+    .cta{text-align:center;background:radial-gradient(ellipse at center,#1c2a55,#080b14 72%);padding:85px 20px;border:1px solid var(--border);border-radius:20px}
+    .cta p{color:var(--muted);margin:12px auto 25px;max-width:520px}
+    footer{border-top:1px solid var(--border);padding:30px 0;color:var(--muted);font-size:13px}
+    .foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    @media(max-width:700px){
+      .links{gap:13px}.links a:not(.btn){display:none}
+      nav{height:66px}.logo{font-size:24px}
+      .hero{padding:75px 0 60px}h1{letter-spacing:-1.8px}
+      .grid{grid-template-columns:1fr}
+      .showcase{grid-template-columns:1fr}
+      .pricing{grid-template-columns:1fr}
+      section{padding:55px 0}
+      .showcase h2{font-size:32px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav class="container">
+    <a class="logo" href="#">nexora<span>.</span></a>
+    <div class="links">
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#pricing">Pricing</a>
+      <a class="btn" href="#contact">Get Started ↗</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="pill">✦ THE NEXT GENERATION OF WORK</div>
+      <h1>Less busywork.<br><span class="gradient">More breakthrough.</span></h1>
+      <p>Nexora helps ambitious teams simplify their workflow, stay organized, and turn big ideas into meaningful progress.</p>
+      <div class="actions">
+        <a class="btn" href="#features">Explore Nexora →</a>
+        <a class="btn btn-outline" href="#about">Discover our platform</a>
+      </div>
+      <p class="note">Simple tools. Smarter workflows. Built for what's next.</p>
+    </div>
+  </section>
+
+  <div class="trust container">
+    DESIGNED FOR MODERN TEAMS
+    <strong>Focus</strong><strong>Efficiency</strong><strong>Growth</strong>
+  </div>
+
+  <section id="features">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Everything in one place</div>
+        <h2>Tools that move you forward.</h2>
+        <p>Bring clarity to your day with a platform designed to make work feel simpler.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="ico">⚡</div>
+          <h3>Smart workflows</h3>
+          <p>Organize repetitive tasks into clear processes so your team can focus on meaningful work.</p>
+        </article>
+        <article class="card">
+          <div class="ico">◈</div>
+          <h3>Clear insights</h3>
+          <p>Bring important information together and understand your progress at a glance.</p>
+        </article>
+        <article class="card">
+          <div class="ico">◎</div>
+          <h3>Team collaboration</h3>
+          <p>Keep projects, priorities, and people aligned with a more organized way of working.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container showcase">
+      <div>
+        <div class="eyebrow">Work with clarity</div>
+        <h2>Your work, organized.<br><span class="gradient">Your goals, in focus.</span></h2>
+        <p class="muted">Nexora brings a clean, intuitive experience to everyday work. Spend less time switching between tasks and more time making progress.</p>
+        <ul class="checks">
+          <li>A simple, organized workspace</li>
+          <li>Progress you can understand</li>
+          <li>A responsive experience on mobile and desktop</li>
+          <li>A flexible foundation for growing teams</li>
+        </ul>
+        <a class="btn" href="#pricing">See plans →</a>
+      </div>
+      <div class="dashboard">
+        <div class="dash-top">
+          <strong>Workspace overview</strong>
+          <span class="status">● On track</span>
+        </div>
+        <div class="metric">
+          <small>Weekly productivity</small>
+          <div class="number">Your next level</div>
+          <span class="muted">Small steps. Meaningful progress.</span>
+          <div class="bars">
+            <i style="height:35%"></i><i style="height:55%"></i>
+            <i style="height:43%"></i><i style="height:72%"></i>
+            <i style="height:62%"></i><i style="height:88%"></i>
+            <i style="height:76%"></i>
+          </div>
+        </div>
+        <div class="metric">
+          <small>Today's focus</small>
+          <div class="number">Make it count.</div>
+          <span class="muted">Plan · Focus · Review</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Simple plans</div>
+        <h2>A starting point for every ambition.</h2>
+        <p>Explore the plans Nexora could offer as the platform grows.</p>
+      </div>
+      <div class="pricing">
+        <div class="price-card">
+          <h3>Starter</h3>
+          <p class="muted">For individuals exploring smarter work.</p>
+          <div class="price">Free</div>
+          <ul>
+            <li>Essential workspace</li>
+            <li>Basic task organization</li>
+            <li>Mobile-friendly access</li>
+          </ul>
+          <a class="btn btn-outline" href="#contact">Get in touch</a>
+        </div>
+        <div class="price-card featured">
+          <div class="eyebrow">FOR GROWING TEAMS</div>
+          <h3>Pro</h3>
+          <p class="muted">For teams ready to do more.</p>
+          <div class="price">Coming soon</div>
+          <ul>
+            <li>Advanced workflows</li>
+            <li>Team collaboration tools</li>
+            <li>Enhanced insights</li>
+          </ul>
+          <a class="btn" href="#contact">Join the waitlist</a>
+        </div>
+      </div>
+      <p class="note muted" style="text-align:center;margin-top:20px">Plan descriptions are proposed features, not currently available paid services.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="cta">
+        <div class="eyebrow">Your next chapter starts here</div>
+        <h2>Ready to rethink your workflow?</h2>
+        <p>Have a question or want to follow the Nexora journey? Get in touch and let's explore what's possible.</p>
+        <a class="btn" href="mailto:hello@nexora.example?subject=Nexora%20Enquiry">Contact Nexora ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <a class="logo" href="#">nexora<span>.</span></a>
+    <span>Building a smarter way to work.</span>
+    <span>© <span id="year"></span> Nexora. All rights reserved.</span>
+  </div>
+</footer>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
